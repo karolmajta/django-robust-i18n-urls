@@ -4,6 +4,7 @@ Created on 13 lut 2014
 @author: karol
 '''
 import urlparse
+import urllib
 
 from django.conf import settings
 from django.core.urlresolvers import get_resolver, reverse
@@ -34,6 +35,8 @@ def set_language(request):
             if not is_safe_url(url=next_path, host=request.get_host):
                 next_path = '/'
         
+        next_path = urllib.unquote(next_path).decode('utf8')
+
         # check if given url is found using current locale
         resolver = get_resolver(None)
         resolve_result = try_url_for_language(next_path, get_language(), resolver)
