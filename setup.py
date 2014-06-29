@@ -45,7 +45,7 @@ class RunUnittests(distutils.core.Command):
         
 setup(
     name = "django-robust-i18n-urls",
-    version = "1.0.0",
+    version = "1.0.1rc1",
     package_dir = {
         '': 'src',
     },
